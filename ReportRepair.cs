@@ -9,23 +9,27 @@ namespace AdventofCodeCS
         {
             List<int> listOfExpenses = new List<int>(); //list of converted input
             List<String> listOfInput = new List<string>(); //List of string inputs
-            int entry1;
+            int entry1 = 0;
             int entry2 = 0;
             int product = 0;
 
             void expenseMult(List<int> entries) /* Fxn used to compute the report*/
             {
-                entry1 = entries[0]; //Assign first number (e.g 1721)
-
-                for(int i = 1; i < entries.Count; i++)
+                for (int i = 0; i < entries.Count - 1; i++)
                 {
-                    int addition = entry1 + entries[i]; //Add the first no to other occuring mumbers to find match
+                    entry1 = entries[i]; ///Picks one number
 
-                    if(addition == 2020)
+                    for (int j = 1; j < entries.Count; j++)
                     {
-                        entry2 = entries[i]; // 299
-                        product = entry1 * entry2; //The product E.g 1721 * 299 = 514579
-                    }                   
+                        int addition = entry1 + entries[j]; //J changes as the loop goes through the list to find a match
+
+                        if (addition == 2020)
+                        {
+                            entry2 = entries[j]; //This is what entries[i] should be added to
+                            product = entry1 * entry2; //The product E.g 1721 * 299 = 514579
+                            
+                        }
+                    }
                 }
             }
 
